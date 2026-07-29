@@ -666,16 +666,11 @@ html, body {
    SECCIÓN DE TESTIMONIOS Y RESEÑAS
    =================================== */
 .store-testimonials {
-    background-color: #0F2C59; /* Azul oficial Sanbrei */
+    background-color: #0F2C59; /* Fondo azul oficial */
     padding: 40px 15px;
-    margin-top: 40px;
-    border-top: 4px solid #ed4307; /* Línea de acento naranja */
-    margin-top: 30px; /* Asegura una separación limpia con lo de arriba */
+    margin-top: 30px;
+    border-top: 4px solid #ed4307; /* Línea naranja sólida original */
 }
-
-
-
-    
 
 .testimonials-container {
     max-width: 1200px;
@@ -701,7 +696,7 @@ html, body {
 }
 
 .stars-gold {
-    color: #ffc107; /* Estrellas doradas brillantes */
+    color: #ffc107;
     font-size: 1.3rem;
     letter-spacing: 2px;
 }
@@ -727,7 +722,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-left: 4px solid #ed4307; /* Toque naranja corporativo en la tarjeta */
+    border-left: 4px solid #ed4307;
 }
 
 .testimonial-stars {
@@ -750,7 +745,6 @@ html, body {
     color: #0F2C59;
     text-align: right;
 }
-
 
 .cart-floating-btn {
     bottom: 35px; /* Subido ligeramente para que flote limpio sobre el azul y no pise el footer naranja */
