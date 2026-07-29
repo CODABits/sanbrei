@@ -153,48 +153,63 @@ function filtrarProductos() {
 
 
 document.getElementById('modal-description').innerHTML = descripcion;
-
-// ==========================================
-// MODAL LEGAL Y DE POLÍTICAS (NORMATIVA COLOMBIA)
-// ==========================================
-const legalModal = document.getElementById('legalModal');
-const legalTitle = document.getElementById('legalTitle');
-const legalBody = document.getElementById('legalBody');
-
-const legalContentData = {
-    terminos: {
-        title: "Términos y Condiciones de Uso - SANBREI",
-        text: `Bienvenido a <b>SANBREI</b>. Al utilizar nuestra tienda virtual y realizar pedidos a través de WhatsApp, aceptas los presentes términos. Los precios indicados en la tienda están expresados en pesos colombianos (COP) e incluyen los impuestos aplicables cuando corresponda. Las ofertas y descuentos tienen vigencia limitada o hasta agotar existencias. Nos reservamos el derecho de rechazar o cancelar pedidos por motivos de seguridad o disponibilidad de inventario.`
-    },
-    privacidad: {
-        title: "Política de Privacidad y Habeas Data (Ley 1581 de 2012)",
-        text: `En cumplimiento de la Ley 1581 de 2012 sobre protección de datos personales, en <b>SANBREI</b> garantizamos que los datos personales (nombre, teléfono, dirección) proporcionados al realizar un pedido por WhatsApp serán tratados de manera confidencial y exclusivamente para gestionar la entrega de tus productos, facturación y atención al cliente. Tus datos nunca serán vendidos ni compartidos con terceros con fines comerciales no autorizados. Tienes derecho a conocer, actualizar, rectificar o solicitar la supresión de tus datos escribiéndonos directamente.`
-    },
-    legal: {
-        title: "Derechos del Consumidor - Ley 1480 de 2011",
-        text: `Conforme a la normatividad colombiana (Estatuto del Consumidor - Ley 1480 de 2011):<br><br>
-        • <b>Garantía Legal:</b> Todos nuestros productos cuentan con garantía por defectos de fabricación. El tiempo de garantía se especifica en las características del producto.<br>
-        • <b>Derecho de Retracto:</b> En las ventas a distancia (como nuestra tienda online), los consumidores podrán ejercer el derecho de retracto dentro de los <b>5 (cinco) días hábiles</b> siguientes a la entrega del bien, debiendo devolver el producto en las mismas condiciones en las que lo recibió.<br>
-        • <b>Reversión de Pagos:</b> Aplica cuando sea objeto de fraude, corresponda a un producto no solicitado o el producto no sea entregado puntualmente, conforme a los canales legales establecidos.`
-    }
-};
-
+// Función para abrir las políticas y términos legales en el modal
 function openLegalModal(type) {
-    const data = legalContentData[type];
-    if (data) {
-        legalTitle.innerText = data.title;
-        legalBody.innerHTML = data.text;
-        legalModal.classList.add('active');
+    const modal = document.getElementById('legalModal');
+    const titleEl = document.getElementById('legalTitle');
+    const bodyEl = document.getElementById('legalBody');
+    
+    let title = "";
+    let content = "";
+
+    if (type === 'terminos') {
+        title = "Términos y Condiciones de Uso - SANBREI";
+        content = `
+            <p><strong>1. Identificación y Aceptación:</strong> Bienvenido a <strong>SANBREI</strong> (sanbrei.com), operado desde Manizales, Caldas, Colombia. El acceso y uso de este sitio web implica la aceptación total y sin reservas de los presentes Términos y Condiciones.</p><br>
+            <p><strong>2. Capacidad Legal:</strong> Los servicios y productos ofrecidos en este sitio están disponibles exclusivamente para personas con capacidad legal para contratar. Si el usuario es menor de edad, deberá actuar bajo la supervisión de sus padres o tutores legales.</p><br>
+            <p><strong>3. Órdenes y Compra a través de WhatsApp:</strong> Las transacciones gestionadas mediante nuestra pasarela hacia WhatsApp constituyen una oferta de compra sujeta a confirmación de disponibilidad de inventario y validación de datos de entrega por parte de nuestro equipo de atención.</p><br>
+            <p><strong>4. Propiedad Intelectual:</strong> Todo el material gráfico, diseño, logotipos, textos y código fuente de sanbrei.com son propiedad exclusiva de SANBREI y están protegidos por las leyes nacionales e internacionales de propiedad intelectual.</p>
+        `;
+    } else if (type === 'privacidad') {
+        title = "Política de Tratamiento de Datos (Habeas Data) - Ley 1581 de 2012";
+        content = `
+            <p><strong>1. Responsable del Tratamiento:</strong> En cumplimiento de la Ley 1581 de 2012 y el Decreto 1377 de 2013 sobre protección de datos personales (Habeas Data), SANBREI informa que es responsable del manejo de la información recolectada a través de este sitio web y canales de mensajería.</p><br>
+            <p><strong>2. Finalidad de la Recolección:</strong> Los datos personales (nombre, teléfono y dirección de envío) solicitados en el formulario de compra son recopilados única y exclusivamente para procesar pedidos, gestionar entregas (pago contra entrega) y enviar notificaciones logísticas o de servicio al cliente.</p><br>
+            <p><strong>3. Derechos del Titular:</strong> Como titular de sus datos, usted tiene derecho a conocer, actualizar, rectificar y suprimir su información, así como a revocar la autorización otorgada para su uso, contactándonos a través de nuestros canales oficiales.</p>
+        `;
+    } else if (type === 'legal') {
+        title = "Garantías, Derecho de Retracto y Ley 1480 de 2011";
+        content = `
+            <p><strong>1. Estatuto del Consumidor:</strong> SANBREI acoge en su totalidad las disposiciones establecidas en la Ley 1480 de 2011 (Estatuto del Consumidor de la República de Colombia) para garantizar los derechos de todos nuestros compradores.</p><br>
+            <p><strong>2. Derecho de Retracto:</strong> De conformidad con el artículo 47 de la Ley 1480, en las ventas por métodos no tradicionales o a distancia (como nuestra tienda online), el consumidor podrá ejercer el derecho de retracto dentro de los <strong>cinco (5) días hábiles</strong> siguientes a la entrega del bien. El producto deberá devolverse en las mismas condiciones en que se recibió, sin uso y con sus empaques originales. Los costos de transporte de devolución correrán por cuenta del consumidor.</p><br>
+            <p><strong>3. Garantía Legal:</strong> Todos nuestros productos cuentan con garantía por defectos de fabricación. Para hacer efectiva una reclamación de garantía, el usuario debe comunicarse mediante nuestro canal oficial de WhatsApp aportando los datos de la compra.</p>
+        `;
     }
+
+    titleEl.innerText = title;
+    bodyEl.innerHTML = content;
+    modal.classList.add('active');
 }
 
+// Función para cerrar el modal legal
 function closeLegalModal() {
-    legalModal.classList.remove('active');
+    const modal = document.getElementById('legalModal');
+    if (modal) {
+        modal.classList.remove('active');
+    }
 }
 
-// Cierre del modal legal haciendo clic fuera del contenido
-window.addEventListener('click', function(event) {
-    if (event.target == legalModal) {
-        closeLegalModal();
-    }
-});
+
+function filtrarCategoria(categoria) {
+    const productos = document.querySelectorAll('.product-card');
+
+    productos.forEach(producto => {
+        const categoriaProducto = producto.getAttribute('data-category');
+
+        if (categoria === 'todo' || categoriaProducto === categoria) {
+            producto.style.display = 'flex'; // Muestra el producto
+        } else {
+            producto.style.display = 'none';  // Oculta el producto
+        }
+    });
+}

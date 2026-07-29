@@ -10,17 +10,21 @@
     --gray-light: #e0e0e0;       /* Bordes y líneas tenues */
 }
 
+/* Importar Montserrat desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
+html, body {
+    height: 100%;
     background-color: var(--primary-color);
     color: var(--text-color);
-    padding-bottom: 80px;
+    padding-bottom: 0;
 }
 
 /* ===================================
@@ -34,7 +38,7 @@ body {
 .hero-banner {
     position: relative;
     width: 100%;
-    height: 160px; /* Altura predeterminada para celulares */
+    height: 160px;
     background-image: url('assets/img/banner-sabrei1.png');
     background-size: cover;
     background-position: center;
@@ -44,14 +48,12 @@ body {
     padding: 15px;
 }
 
-/* Ajuste exclusivo para computadores (pantallas a partir de 768px de ancho) */
 @media (min-width: 768px) {
     .hero-banner {
-        height: 280px; /* Aumentamos el alto en PC para que la imagen se vea completa y respire mejor */
+        height: 280px;
     }
 }
 
-/* Barra de búsqueda flotante en el banner */
 .search-box {
     background: rgba(255, 255, 255, 0.95);
     padding: 6px 14px;
@@ -78,8 +80,6 @@ body {
     flex-shrink: 0;
 }
 
-
-/* Franja de perfil naranja con bordes uniformes y simetría */
 .hero-profile-container {
     background-color: #ed4307 !important;
     padding: 15px 25px !important;
@@ -93,7 +93,6 @@ body {
     box-sizing: border-box !important;
 }
 
-/* Logo redondo perfecto debajo del banner */
 .store-logo-wrapper {
     width: 70px !important;
     height: 70px !important;
@@ -153,7 +152,7 @@ body {
 }
 
 /* ===================================
-   CATEGORÍAS DESLIZABLES (MÓVIL Y WEB)
+   CATEGORÍAS DESLIZABLES
    =================================== */
 .categories-container {
     display: flex;
@@ -219,11 +218,7 @@ body {
     margin: 0 auto;
 }
 
-/* Importar Montserrat desde Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 .product-card {
-
-    
     background: #fff;
     border-radius: 8px;
     overflow: hidden;
@@ -233,7 +228,6 @@ body {
     justify-content: space-between;
     width: 100%;
     transition: transform 0.2s, box-shadow 0.2s;
-    font-family: 'Montserrat', sans-serif; /* <-- Añade esto aquí */
 }
 
 .product-card:hover {
@@ -260,29 +254,37 @@ body {
 
 .product-info {
     padding: 12px;
-    color:#0F2C59;
-    font-family: 'Montserrat', sans-serif; /* <-- Añade esto aquí */
+    color: #0F2C59;
 }
 
-
-
 .product-title {
-    font-family: 'Montserrat', sans-serif !important;
     font-size: 0.75rem;
-    color: #0F2C59 !important; /* <-- Reemplaza el color anterior por este azul */
+    color: #0F2C59 !important;
+    font-weight: 700;
     margin-bottom: 6px;
-    height: 2.4em;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+    min-height: 2.8em; /* Asegura espacio suficiente para 2 o 3 líneas si es necesario */
+    height: auto;      /* Permite que la altura sea flexible según el texto */
+    overflow: visible; /* Evita que el texto se oculte o corte bruscamente */
+}
+
+.product-price-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.old-price {
+    font-size: 0.8rem;
+    color: #888888 !important;
+    text-decoration: line-through;
 }
 
 .product-price {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: bold;
     color: #ed4307 !important;
-    margin-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .btn-details {
@@ -322,7 +324,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    z-index: 99;
+    z-index: 999;
     transition: transform 0.2s;
 }
 
@@ -426,7 +428,7 @@ body {
 }
 
 /* ===================================
-   MODAL DE PRODUCTOS
+   MODAL DE PRODUCTOS Y LEGAL
    =================================== */
 .modal-overlay {
     position: fixed;
@@ -441,7 +443,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
-    z-index: 1000;
+    z-index: 3000;
     padding: 10px;
 }
 
@@ -521,11 +523,23 @@ body {
     padding: 20px;
 }
 
+.modal-content h2,
+.modal-content h3,
+.modal-body h2,
+.modal-body h3,
+#modal-title,
 .modal-title-text {
+    color: #0F2C59 !important;
+    font-weight: 700 !important;
     font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 8px;
-    text-transform: uppercase;
+}
+
+.modal-content p,
+.modal-body p,
+#modal-description {
+    color: #444343 !important;
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
 }
 
 .modal-price-text {
@@ -575,6 +589,58 @@ body {
 }
 
 /* ===================================
+   FOOTER / CINTA NARANJA DISCRETA AL FINAL
+   =================================== */
+.store-footer {
+    background-color: #ed4307;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px 10px;
+    width: 100%;
+    position: relative;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    margin: 0;
+    color: #ffffff;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+}
+
+.footer-links a {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.8;
+}
+
+.footer-links .separator {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===================================
    RESPONSIVE MÓVIL
    =================================== */
 @media (max-width: 600px) {
@@ -594,104 +660,4 @@ body {
     .search-box {
         width: 100%;
     }
-}
-
-
-/* FORZAR ESTILOS DENTRO DEL MODAL */
-
-/* Título del producto dentro del modal (Azul Corporativo) */
-.modal-content h2,
-.modal-content h3,
-.modal-body h2,
-.modal-body h3,
-#modal-title {
-    color: #0F2C59 !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-weight: 700 !important;
-}
-
-/* Párrafo de descripción dentro del modal (Gris legible) */
-.modal-content p,
-.modal-body p,
-#modal-description {
-    color: #444343 !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 0.9rem !important;
-    line-height: 1.4 !important;
-}
-
-
-/* Contenedor para alinear los precios en horizontal (al lado) */
-.product-price-container {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Espacio entre el precio tachado y el nuevo */
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif !important;
-}
-
-/* Estilo para el precio anterior tachado */
-.old-price {
-    font-size: 0.8rem;
-    color: #888888 !important;
-    text-decoration: line-through; /* Esto es lo que tacha el texto */
-}
-
-/* Estilo para tu precio actual en oferta */
-.product-price {
-    font-size: 0.95rem;
-    font-weight: bold;
-    color: #ed4307 !important;
-    margin-bottom: 0; /* Quitamos el margen anterior para que el flex lo controle */
-}
-
-
-/* ===================================
-   FOOTER Y ENLACES LEGALES
-   =================================== */
-.store-footer {
-    background-color: #ed4307; /* Azul Corporativo */
-    color: #ffffff;
-    text-align: center;
-    padding: 25px 15px;
-    margin-top: 40px;
-    border-top: 3px solid #ed4307; /* Detalle naranja vibrante */
-    font-family: 'Montserrat', sans-serif;
-}
-
-.footer-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-copy {
-    font-size: 0.8rem;
-    color: #e0e0e0;
-}
-
-.footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    font-size: 0.75rem;
-}
-
-.footer-links a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer-links a:hover {
-    color: #ed4307;
-    text-decoration: underline;
-}
-
-.separator {
-    color: #ed4307;
 }

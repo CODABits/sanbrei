@@ -77,36 +77,36 @@
         🛒 Carrito <span class="cart-count" id="cartCount">0</span>
     </button>
 
-    <!-- Categorías -->
-<nav class="categories-container">
-    <div class="category-item" onclick="filtrarCategoria('todo')">
-        <div class="category-circle"><img src="assets/img/logo-sanbrei-oficial.png" alt="Todo"></div>
-        <span class="category-name">Todo</span>
-    </div>
-    <div class="category-item" onclick="filtrarCategoria('mascotas')">
-        <div class="category-circle"><img src="assets/img/quitamotasrecargable/quitamotasrecargable.png" alt="Mascotas"></div>
-        <span class="category-name">Mascotas</span>
-    </div>
-    <div class="category-item" onclick="filtrarCategoria('tecnologia')">
-        <div class="category-circle"><img src="assets/img/tablet16pulgadas/tablet161.webp" alt="Tecnología"></div>
-        <span class="category-name">Tecnología</span>
-    </div>
-     <div class="category-item" onclick="filtrarCategoria('tecnologia')">
-        <div class="category-circle"><img src="assets/img/molino-cafe/molino-cafe1.png" alt="Tecnología"></div>
-        <span class="category-name">Hogar</span>
-    </div>
-     <div class="category-item" onclick="filtrarCategoria('tecnologia')">
-        <div class="category-circle"><img src="assets/img/plantilla3cms/plantilla3cms.png" alt="Tecnología"></div>
-        <span class="category-name">Belleza</span>
-    </div>
-</nav>
+<!-- Categorías -->
+    <nav class="categories-container">
+        <div class="category-item" onclick="filtrarCategoria('todo')">
+            <div class="category-circle"><img src="assets/img/logo-sanbrei-oficial.png" alt="Todo"></div>
+            <span class="category-name">Todo</span>
+        </div>
+        <div class="category-item" onclick="filtrarCategoria('mascotas')">
+            <div class="category-circle"><img src="assets/img/quitamotasrecargable/quitamotasrecargable.png" alt="Mascotas"></div>
+            <span class="category-name">Mascotas</span>
+        </div>
+        <div class="category-item" onclick="filtrarCategoria('tecnologia')">
+            <div class="category-circle"><img src="assets/img/tablet16pulgadas/tablet161.webp" alt="Tecnología"></div>
+            <span class="category-name">Tecnología</span>
+        </div>
+        <div class="category-item" onclick="filtrarCategoria('hogar')">
+            <div class="category-circle"><img src="assets/img/molino-cafe/molino-cafe1.png" alt="Hogar"></div>
+            <span class="category-name">Hogar</span>
+        </div>
+        <div class="category-item" onclick="filtrarCategoria('belleza')">
+            <div class="category-circle"><img src="assets/img/plantilla3cms/plantilla3cms.png" alt="Belleza"></div>
+            <span class="category-name">Belleza</span>
+        </div>
+    </nav>
 
     <!-- Grilla de Productos -->
     <main class="products-grid">
         
  
 <!-- PRODUCTO 1 TAPETE ARENA GATOS -->
-<div class="product-card">
+<div class="product-card" data-category="mascotas">
     <div class="product-image-container" onclick="openModal([
        'assets/img/tapete-arena-gatos/gato1.png', 
             'assets/img/tapete-arena-gatos/gato2.png', 
@@ -128,7 +128,7 @@
 </div>
 
         <!-- PRODUCTO 2 tablet magica LCD 16 PULGADAS  -->
-        <div class="product-card">
+        <div class="product-card" data-category="tecnologia">
             <div class="product-image-container" onclick="openModal([
                 'assets/img/tablet16pulgadas/tablet16.png', 
                 'assets/img/tablet16pulgadas/tablet161.webp', 
@@ -149,7 +149,7 @@
         </div>
 
         <!-- PRODUCTO 3 tablet magica LCD 12 PULGADAS  -->
-        <div class="product-card">
+        <div class="product-card" data-category="tecnologia">
             <div class="product-image-container" onclick="openModal([
                 'assets/img/tablet12pulgadas/tablet12.png', 
                 'assets/img/tablet12pulgadas/tablet121.png', 
@@ -170,7 +170,7 @@
 </div>
 
         <!-- PRODUCTO 4 TABLET 8.5 LCD -->
-     <div class="product-card">
+     <div class="product-card" data-category="tecnologia">
             <div class="product-image-container" onclick="openModal([
                'assets/img/tabletiburon/tabletiburon.png',
                 'assets/img/tabletiburon/tabletiburon1.png', 
@@ -192,7 +192,7 @@
 </div>
 
         <!-- PRODUCTO 5 TAPETE AGUA MAGICO -->
-        <div class="product-card">
+        <div class="product-card" data-category="hogar">
             <div class="product-image-container" onclick="openModal([
                'assets/img/tapeteaguamagico/tapetemagicoagua2.png', 
                 'assets/img/tapeteaguamagico/tapetemagicoagua1.png', 
@@ -214,7 +214,7 @@
 
 
         <!-- PRODUCTO 5 MOLINO CAFE MANUAL  -->
-<div class="product-card">
+<div class="product-card" data-category="hogar">
     <div class="product-image-container" onclick="openModal([
           'assets/img/molino-cafe/molinocafe-manizales.png', 
             'assets/img/molino-cafe/molino-cafe1.png', 
@@ -239,7 +239,7 @@
 </div>
 
  <!-- PRODUCTO 6 MOLINO ELECTRICO CAFE Y GRANOS -->
-<div class="product-card">
+<div class="product-card" data-category="hogar">
     <div class="product-image-container" onclick="openModal([
         'assets/img/molinoelectrico/molinoelectrico.png'
 ], 'Molinillo Eléctrico de Café y Especias', 29900, '¿Buscas una forma rápida y práctica de moler café, semillas y especias en segundos? <b>Potente motor de 150W con cuchillas de acero inoxidable</b> y diseño compacto de un solo toque. <b>¡Disfruta de la máxima frescura y sabor en cada preparación!</b>')">
@@ -258,7 +258,7 @@
 </div>
 
    <!-- PRODUCTO 7 PLANTILLA 3MCS  -->
-<div class="product-card">
+<div class="product-card" data-category="belleza">
     <div class="product-image-container" onclick="openModal([
          'assets/img/plantilla3cms/plantilla3cms.png'
 ], 'Plantillas Silicona Elevadoras 3CM', 24900, '¿Quieres ganar más altura sin sacrificar la comodidad de tus pies? Descubre nuestras <b>plantillas de silicona elevadoras</b>. Te otorgan hasta 3 cm de estatura al instante con un diseño ultra cómodo, suave y transpirable que amortigua cada paso y previene el dolor de talón. Son ideales para uso diario, se adaptan perfectamente y se pueden usar con medias o dentro de cualquier zapato.<br><br><b>¡Camina con más estilo, confianza y comodidad todos los días!</b>')">
@@ -279,7 +279,7 @@
 
 
 <!-- PRODUCTO 8 QUITAMOTAS RECARGABLE  -->
-<div class="product-card">
+<div class="product-card" data-category="hogar">
     <div class="product-image-container" onclick="openModal([
   'assets/img/removermotaselectrico/removedormotas.png',
             'assets/img/quitamotasrecargable/quitamotasrecargable.png'
@@ -300,7 +300,7 @@
 
 
 <!-- PRODUCTO 9 REMOVEDOR MOTAS -->
-<div class="product-card">
+<div class="product-card" data-category="hogar">
     <div class="product-image-container" onclick="openModal([
         'assets/img/removermotaselectrico/removedormotas.png',
         'assets/img/removermotaselectrico/removedormotas1.png',
@@ -333,7 +333,7 @@
 
    
 <!-- PRODUCTO 10  RODILLO LIMPIADOR DE PELOS REUTILIZABLE  -->
-<div class="product-card">
+<div class="product-card" data-category="mascotas">
     <div class="product-image-container" onclick="openModal([
         'assets/img/rodillolimpiadorpelos/rodillolimpiadorpelos.png',
         'assets/img/rodillolimpiadorpelos/rodillolimpiadorpelos1.png',
@@ -358,7 +358,7 @@
 </div>
 
 <!-- PRODUCTO 11 SECADOR DE ZAPATOS ELECTRICO -->
-<div class="product-card">
+<div class="product-card" data-category="hogar">
     <div class="product-image-container" onclick="openModal([
         'assets/img/secadortennis/secadortennis.png',
         'assets/img/secadortennis/secadortennis1.png',
