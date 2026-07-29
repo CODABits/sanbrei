@@ -661,3 +661,98 @@ html, body {
         width: 100%;
     }
 }
+
+/* ===================================
+   SECCIÓN DE TESTIMONIOS Y RESEÑAS
+   =================================== */
+.store-testimonials {
+    background-color: #0F2C59; /* Azul oficial Sanbrei */
+    padding: 40px 15px;
+    margin-top: 40px;
+    border-top: 4px solid #ed4307; /* Línea de acento naranja */
+    margin-top: 30px; /* Asegura una separación limpia con lo de arriba */
+}
+
+
+
+    
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonials-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.rating-badge-main {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stars-gold {
+    color: #ffc107; /* Estrellas doradas brillantes */
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+}
+
+.rating-score {
+    font-size: 0.85rem;
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: 4px solid #ed4307; /* Toque naranja corporativo en la tarjeta */
+}
+
+.testimonial-stars {
+    color: #ffc107;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.testimonial-text {
+    font-size: 0.88rem;
+    color: #444343;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.testimonial-author {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #0F2C59;
+    text-align: right;
+}
+
+
+.cart-floating-btn {
+    bottom: 35px; /* Subido ligeramente para que flote limpio sobre el azul y no pise el footer naranja */
+    z-index: 9999;
+}
